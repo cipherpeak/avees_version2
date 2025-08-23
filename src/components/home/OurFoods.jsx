@@ -15,28 +15,28 @@ const HotelFoodsSection = () => {
   const foodItems = [
     {
       id: 1,
-      name: "Grilled Salmon Fillet",
+      name: "Duck Mappas",
       image: food4,
       rating: 5,
       description: "Fresh salmon with herbs and lemon butter sauce",
     },
     {
       id: 2,
-      name: "Beef Wellington",
+      name: "Cheratta Puttu",
       image: food1,
       rating: 5,
       description: "Prime beef tenderloin wrapped in puff pastry",
     },
     {
       id: 3,
-      name: "Lobster Thermidor",
+      name: "Chicken Biriyani",
       image: food2,
       rating: 5,
       description: "Lobster cooked in a rich cream sauce with cheese",
     },
     {
       id: 4,
-      name: "Truffle Risotto",
+      name: "Fish Curry Meals",
       image: food3,
       rating: 5,
       description: "Creamy arborio rice with black truffle and parmesan",
