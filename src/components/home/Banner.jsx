@@ -1,111 +1,180 @@
-import { useState, useEffect } from "react";
-import { Globe, Truck, ShoppingBag, Tag, Wheat } from "lucide-react";
+"use client"
 
-// Import all your banner images
-import desktopBanner1 from "../../assets/banner/BANNER 01 (1).webp";
-import desktopBanner2 from "../../assets/banner/BANNER 02.webp";
-import desktopBanner3 from "../../assets/banner/BANNER 04 (1).webp";
+import { useEffect, useState, useRef } from "react"
+import { motion } from "framer-motion"
 
-import mobileBanner1 from "../../assets/banner/PHONE BANNER 01.webp";
-import mobileBanner2 from "../../assets/banner/PHONE BANNER 03.webp";
-import mobileBanner3 from "../../assets/banner/PHONE BANNER 08.webp";
-
-const FeatureItem = ({ icon: Icon, title, description }) => (
-  <div className="flex items-center gap-7 text-center p-1 min-w-[250px]">
-    <div className="bg-white rounded-full p-3 mb-2 shadow-md">
-      <Icon className="w-6 h-6 text-banner-teal text-black" />
-    </div>
-    <div className="flex flex-col items-start">
-      <h3 className="font-semibold text-lg mb-1">{title}</h3>
-      <p className="text-sm text-white">{description}</p>
-    </div>
-  </div>
-);
-
-function Banner() {
-  const featureItems = [
-    { icon: Wheat, title: "Authentic Kerala Foods", description: "From puttu podi to palappam batter, all your favorites in one place" },
-    { icon: ShoppingBag, title: "Easy Online Shopping", description: "Order your essentials in just a few clicks" },
-    { icon: Truck, title: "Fast Home Delivery", description: "Fresh products delivered quickly to your doorstep" },
-    { icon: Tag, title: "Best Prices & Offers", description: "Enjoy great value on Avees products every day" },
-    { icon: Globe, title: "Trusted Quality", description: "Made with care, loved across Kerala and beyond" },
-  ];
-
-  const duplicatedItems = [...featureItems, ...featureItems];
-
-  // Separate banners for mobile/tablet and desktop
-  const mobileBanners = [ mobileBanner2, mobileBanner3,mobileBanner1];
-  const desktopBanners = [desktopBanner2,desktopBanner3, desktopBanner1 ];
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Check screen size on mount and resize
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 1024); 
-    };
-
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
-
-  // Determine which banners to use based on screen size
-  const banners = isMobile ? mobileBanners : desktopBanners;
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % banners.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + banners.length) % banners.length);
-  };
+export default function Banner() {
+  const [bannerSrc, setBannerSrc] = useState(
+    "https://res.cloudinary.com/dkzvu1c4j/video/upload/v1756294728/Avees_Banner_Re3_1_yx5e36.mp4",
+  )
+  const [isMobile, setIsMobile] = useState(false)
+  const videoRef = useRef(null)
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 3000);
-    return () => clearInterval(timer);
-  }, [banners.length]); 
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setBannerSrc("https://res.cloudinary.com/dkzvu1c4j/video/upload/v1756294728/Avees_Banner_Re3_1_yx5e36.mp4")
+        setIsMobile(true)
+      } else if (window.innerWidth < 1024) {
+        setBannerSrc("https://res.cloudinary.com/dkzvu1c4j/video/upload/v1756294728/Avees_Banner_Re3_1_yx5e36.mp4")
+        setIsMobile(false)
+      } else {
+        setBannerSrc("https://res.cloudinary.com/dkzvu1c4j/video/upload/v1756294728/Avees_Banner_Re3_1_yx5e36.mp4")
+        setIsMobile(false)
+      }
+    }
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch((error) => {
+              console.log("Autoplay prevented:", error)
+            })
+          } else {
+            video.pause()
+          }
+        })
+      },
+      { threshold: 0.5 },
+    )
+
+    observer.observe(video)
+    return () => observer.unobserve(video)
+  }, [bannerSrc])
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.3, delayChildren: 0.1 },
+    },
+    exit: { opacity: 0, transition: { duration: 0.5, ease: "easeIn" } },
+  }
+
+  const videoVariants = {
+    hidden: { opacity: 0, scale: 1.05 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 1.2, ease: "easeOut" },
+    },
+    exit: { opacity: 0, scale: 1.05, transition: { duration: 0.6, ease: "easeIn" } },
+  }
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, delay: 0.6, ease: "easeOut" },
+    },
+  }
+
+  const floatingVariants = {
+    animate: {
+      y: [-10, 10, -10],
+      transition: {
+        duration: 6,
+        repeat: Number.POSITIVE_INFINITY,
+        ease: "easeInOut",
+      },
+    },
+  }
 
   return (
-    <div className="w-full overflow-hidden">
-      <div className="relative w-full">
-        <img
-          src={banners[currentSlide]}
-          alt="Banner"
-          className="w-full h-full object-cover object-center transition-all duration-700"
+    <motion.section
+      className="relative w-full p-5   flex items-center justify-center overflow-hidden"
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: false, amount: isMobile ? 0.01 : 0.05 }}
+      variants={containerVariants}
+    >
+      <motion.div
+        className="relative w-full "
+        variants={videoVariants}
+      >
+        <motion.video
+          ref={videoRef}
+          src={bannerSrc}
+          className="w-full h-[50rem] object-cover rounded-3xl"
+          muted
+          loop
+          playsInline
+          preload="auto"
         />
 
-        {/* Navigation Dots */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-          {banners.map((_, index) => (
-            <span
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`h-2 w-2 rounded-full cursor-pointer transition-all ${
-                index === currentSlide ? "bg-white" : "bg-gray-400"
-              }`}
-            />
-          ))}
-        </div>
-      </div>
+        <motion.div
+          className="absolute inset-0 flex items-center justify-start text-left px-4 sm:px-6 lg:px-8"
+          variants={textVariants}
+        >
+          <div className="max-w-4xl">
+            <motion.h1
+              className="text-white font-bold tracking-tight text-balance leading-tight
+                         text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl
+                         drop-shadow-2xl"
+              variants={floatingVariants}
+              animate="animate"
+            >
+              <span className="bg-gradient-to-r from-white via-white to-gray-200 bg-clip-text text-transparent">
+                Rooted in Kuttanad.
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-red-600 via-white to-green-200 bg-clip-text text-transparent">
+                Ready for the World.
+              </span>
+            </motion.h1>
 
-      {/* Features Scrolling Section */}
-      <div className="bg-red-600 text-white py-8 md:py-12 overflow-hidden">
-        <div className="scrolling-wrapper">
-          <div className="scrolling-content flex animate-scroll gap-8">
-            {duplicatedItems.map((item, index) => (
-              <FeatureItem
-                key={`${index}-${item.title}`}
-                icon={item.icon}
-                title={item.title}
-                description={item.description}
-              />
-            ))}
+            <motion.p
+              className="mt-4 sm:mt-6 text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed drop-shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+            >
+              Discover the beauty and heritage of Kerala's backwaters, where tradition meets innovation
+            </motion.p>
+
+            <motion.div
+              className="mt-6 sm:mt-8"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.6, duration: 0.6 }}
+            >
+              <button className="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white font-medium text-sm sm:text-base hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                Explore Our Story
+              </button>
+            </motion.div>
           </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+        </motion.div>
+      </motion.div>
 
-export default Banner;
+      <motion.div
+        className="absolute top-10 left-10 w-20 h-20 bg-white/5 rounded-full blur-xl"
+        variants={floatingVariants}
+        animate="animate"
+      />
+      <motion.div
+        className="absolute bottom-20 right-20 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"
+        variants={floatingVariants}
+        animate="animate"
+        transition={{ delay: 2 }}
+      />
+      <motion.div
+        className="absolute top-1/3 right-10 w-16 h-16 bg-green-500/10 rounded-full blur-xl"
+        variants={floatingVariants}
+        animate="animate"
+        transition={{ delay: 4 }}
+      />
+    </motion.section>
+  )
+}

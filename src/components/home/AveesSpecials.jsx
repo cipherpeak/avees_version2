@@ -73,7 +73,7 @@ export default function AveesSpecials() {
 
   return (
     <motion.section
-      className="relative w-full flex items-center justify-center overflow-hidden"
+      className="relative w-full flex  p-5 items-center justify-center overflow-hidden"
       initial="hidden"
       whileInView="visible"
       exit="exit"
@@ -84,7 +84,7 @@ export default function AveesSpecials() {
       <motion.video
         ref={videoRef}
         src={bannerSrc}
-        className="w-full h-full object-cover"
+        className="w-full h-full rounded-4xl  object-cover"
         muted
         loop
         playsInline

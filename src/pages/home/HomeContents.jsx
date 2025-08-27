@@ -12,11 +12,11 @@ function HomeContents() {
   return (
     <div>
         <Banner/>
-        <Products/>
-        <BatterSec/>
-        <HotelFoodsSection/>
         <AveesSpecials/>
+        <Products/>
         <OurStory/>
+        <HotelFoodsSection/>
+        <BatterSec/>
         <AdsVideos/>
         {/* <OurBrands/> */}
     </div>

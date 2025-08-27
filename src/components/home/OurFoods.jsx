@@ -156,7 +156,7 @@ const HotelFoodsSection = () => {
         <motion.div className="text-center mb-16" variants={containerVariants}>
           <motion.div className="inline-block mb-4" variants={headerVariants}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold inline-block relative">
-              AVEES FOODS
+              AVEES PUTTU HOUSE
               <motion.span
                 className="absolute -bottom-2 left-0 h-1 bg-red-600"
                 initial={{ width: 0 }}
