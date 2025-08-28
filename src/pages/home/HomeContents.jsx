@@ -18,6 +18,7 @@ function HomeContents() {
     <div>
         <Banner/>
         <FoodShowCase/>
+        <OurStory/>
         <WhyAvees/>
         <WhereItBuy/>
         <EcosystemItems/>

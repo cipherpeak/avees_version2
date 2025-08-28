@@ -153,7 +153,7 @@ function OurStory() {
 
   return (
     <motion.section 
-      className="relative w-full h-screen flex items-center justify-center overflow-hidden group mt-3"
+      className="relative w-full md:p-5 p-2 h-screen flex items-center justify-center overflow-hidden group mt-3"
       initial="hidden"
       whileInView="visible"
       exit="exit"
@@ -168,16 +168,11 @@ function OurStory() {
         <img
           src={isMobile ? ourstorybannerMobile : ourstorybanner}
           alt="Our Story Banner"
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full rounded-3xl"
           loading="lazy"
         />
       </motion.div>
 
-      {/* Overlay */}
-      <motion.div 
-        className="absolute inset-0 bg-black/30"
-        variants={overlayVariants}
-      />
 
       {/* Content Container */}
       <motion.div 
@@ -209,11 +204,11 @@ function OurStory() {
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 sm:mb-6 md:mb-8 text-left leading-relaxed">
             {isMobile ? (
               <>
-                Founded in 1994 by A.V. George in Pulincunnoo, Kuttanad, Arayacherril Varkey & Sons Pvt Ltd began as a humble rice flour mill, deeply rooted in preserving the authentic taste and heritage of traditional Kuttanadan rice products.
+            Founded in 1994 in the lush backwaters of Kuttanad as a small rice flour mill in Pulincunnoo, Avees has grown into a brand that spans premium food products, Puttu House restaurants, and serene resort experiences—each rooted in Kerala's rich culinary heritage and guided by a commitment to authenticity, sustainable farming, and the timeless traditions that connect land, people, and community.
               </>
             ) : (
               <>
-                Guided by a passion for quality and community, this family-owned business has grown into a thriving food and hospitality group that honors its roots while innovating for the future. From the fertile fields of Kuttanad to kitchens across the world, we carry the soul of Kerala's culinary heritage.
+              Founded in 1994 in the lush backwaters of Kuttanad as a small rice flour mill in Pulincunnoo, Avees has grown into a brand that spans premium food products, Puttu House restaurants, and serene resort experiences—each rooted in Kerala's rich culinary heritage and guided by a commitment to authenticity, sustainable farming, and the timeless traditions that connect land, people, and community.
               </>
             )}
            
