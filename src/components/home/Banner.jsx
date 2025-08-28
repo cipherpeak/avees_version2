@@ -93,7 +93,7 @@ export default function Banner() {
 
   return (
     <motion.section
-      className="relative w-full p-5   flex items-center justify-center overflow-hidden"
+      className="relative w-full p-5 flex items-center justify-center overflow-hidden"
       initial="hidden"
       whileInView="visible"
       exit="exit"
@@ -107,7 +107,7 @@ export default function Banner() {
         <motion.video
           ref={videoRef}
           src={bannerSrc}
-          className="w-full h-[50rem] object-cover rounded-3xl"
+          className="w-full lg:h-[50rem] object-cover rounded-3xl"
           muted
           loop
           playsInline

@@ -48,27 +48,26 @@ function Products() {
   };
 
   return (
-    <motion.section 
-      className="relative  flex items-center justify-center overflow-hidden"
-      initial="hidden"
-      whileInView="visible"
-      exit="exit"
-      viewport={{ once: false, amount: 0.05 }} // triggers when just 5% is visible
-      variants={containerVariants}
-    >
-      {/* Background Image - Animates first from right to left */}
-      <motion.div
-        className="w-full h-full"
-        variants={imageVariants}
+      <motion.section 
+        className="relative  flex items-center justify-center overflow-hidden"
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: false, amount: 0.05 }} 
+        variants={containerVariants}
       >
-        <img 
-          src={products} 
-          alt="Products Banner" 
-          className="object-cover w-full h-full"
-          loading="lazy" 
-        />
-      </motion.div>
-    </motion.section>
+        <motion.div
+          className="w-full h-full"
+          variants={imageVariants}
+        >
+          <img 
+            src={products} 
+            alt="Products Banner" 
+            className="object-cover w-full h-full"
+            loading="lazy" 
+          />
+        </motion.div>
+      </motion.section>
   );
 }
 
