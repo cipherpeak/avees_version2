@@ -93,7 +93,7 @@ export default function Banner() {
 
   return (
     <motion.section
-      className="relative w-full p-5 flex items-center justify-center overflow-hidden"
+      className="relative w-full md:p-5 p-2 flex items-center justify-center overflow-hidden"
       initial="hidden"
       whileInView="visible"
       exit="exit"
@@ -107,7 +107,7 @@ export default function Banner() {
         <motion.video
           ref={videoRef}
           src={bannerSrc}
-          className="w-full lg:h-[50rem] h-96 object-cover rounded-3xl"
+          className="w-full lg:h-[50rem] h-[28rem] object-cover rounded-3xl"
           muted
           loop
           playsInline
@@ -115,7 +115,7 @@ export default function Banner() {
         />
 
         <motion.div
-          className="absolute inset-0 flex items-center justify-start text-left px-4 sm:px-6 lg:px-8"
+          className="absolute lg:mt-0 mt-28 inset-0 flex items-center justify-start text-left px-4 sm:px-6 lg:px-8"
           variants={textVariants}
         >
           <div className="max-w-4xl">
@@ -136,7 +136,7 @@ export default function Banner() {
             </motion.h1>
 
             <motion.p
-              className="mt-4 sm:mt-6 text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed drop-shadow-lg"
+              className="mt-4 sm:mt-6 hidden md:block text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed drop-shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
@@ -151,7 +151,7 @@ export default function Banner() {
               transition={{ delay: 1.6, duration: 0.6 }}
             >
               <button className="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white font-medium text-sm sm:text-base hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                Explore Our Story
+                Explore Our Products
               </button>
             </motion.div>
           </div>

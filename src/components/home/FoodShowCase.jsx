@@ -9,7 +9,7 @@ const palappamPodi = "https://res.cloudinary.com/dkzvu1c4j/image/upload/v1756361
 
 function FoodShowCase() {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.05 });
+  const isInView = useInView(sectionRef, { once: false, amount: 0.01 });
 
   const foodItems = [
     {
@@ -91,7 +91,7 @@ function FoodShowCase() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
           >
-            Our Traditional Products
+            Avees Foods
           </motion.h2>
           <motion.p 
             className="text-gray-600 max-w-2xl mx-auto"
@@ -125,7 +125,7 @@ function FoodShowCase() {
                 <h3 className="text-xl font-bold text-gray-800 mb-2">{item.name}</h3>
                 <p className="text-gray-600 mb-4">{item.description}</p>
                 
-                <div className="border-t border-gray-100 pt-4 mb-4">
+                <div className="hidden md:block border-t border-gray-100 pt-4 mb-4">
                   <ul className="space-y-2">
                     {item.features.map((feature, index) => (
                       <li key={index} className="flex items-center text-sm text-gray-700">

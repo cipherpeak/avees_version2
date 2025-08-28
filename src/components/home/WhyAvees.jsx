@@ -79,9 +79,9 @@ const WhyAvees = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className=" bg-white">
       {/* Hero Section - Why Avees */}
-      <section className="min-h-screen flex items-center justify-center py-20 px-4">
+      <section className="flex items-center justify-center py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div
             id="hero-title"
@@ -124,7 +124,7 @@ const WhyAvees = () => {
       </section>
 
       {/* From Field to Fork Section */}
-      <section className="min-h-screen py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+      <section className=" py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
@@ -135,29 +135,33 @@ const WhyAvees = () => {
                   isVisible["field-title"] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
                 }`}
               >
-                <h2 className="text-5xl md:text-6xl font-bold text-red-600 mb-8 text-balance">From Field to Fork</h2>
+                <h2 className="text-5xl md:text-6xl font-bold text-red-600 mb-8 text-balance"> <span className="text-black">From</span> Field to Fork</h2>
                 <p className="text-xl text-gray-600 mb-12 leading-relaxed text-pretty">
                   Every grain tells a story. From the fertile lands of Kuttanad, below sea level, to your kitchen table
                   - we bring you the authentic taste of Kerala with uncompromising quality and tradition.
                 </p>
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-8 relative">
+                {/* Vertical dotted line */}
+                <div className="absolute left-8 top-0 bottom-0 w-0 border-l-2 border-dotted border-red-600"></div>
+                
                 {processes.map((process, index) => (
-                  <div
-                    key={index}
-                    id={`process-${index}`}
-                    className={`flex items-start gap-6 transition-all duration-700 ${
-                      isVisible[`process-${index}`] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-                    }`}
-                    style={{ transitionDelay: process.delay }}
-                  >
-                    <div className="w-16 h-16 rounded-full white flex items-center justify-center border border-red-600 text-red-600 text-2xl flex-shrink-0">
-                      {process.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">{process.title}</h3>
-                      <p className="text-gray-600 leading-relaxed text-pretty">{process.description}</p>
+                  <div key={index} className="relative">
+                    <div
+                      id={`process-${index}`}
+                      className={`flex items-start gap-6 transition-all duration-700 ${
+                        isVisible[`process-${index}`] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+                      }`}
+                      style={{ transitionDelay: process.delay }}
+                    >
+                      <div className="w-16 h-16 rounded-full white flex items-center justify-center border border-red-600 text-red-600 text-2xl flex-shrink-0 relative z-10 bg-white">
+                        {process.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-3">{process.title}</h3>
+                        <p className="text-gray-600 leading-relaxed text-pretty">{process.description}</p>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -188,8 +192,6 @@ const WhyAvees = () => {
           </div>
         </div>
       </section>
-
-
     </div>
   )
 }

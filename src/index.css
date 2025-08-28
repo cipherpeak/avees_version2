@@ -4,6 +4,7 @@
 /* In your CSS */
 body {
   font-family: 'Gotham', sans-serif;
+  overflow-x: hidden;
 }
 
 @keyframes scroll {

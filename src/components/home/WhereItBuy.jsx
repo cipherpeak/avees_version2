@@ -50,7 +50,7 @@ function WhereItBuy() {
   ];
 
   return (
-    <div className="w-full py-16 md:py-24 bg-background flex items-center justify-center px-4">
+    <div className="w-full py-8 md:py-20 bg-background flex items-center justify-center px-4">
       <div className="w-full max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
@@ -74,7 +74,7 @@ function WhereItBuy() {
                 <img
                   src={retailer.logo || "/placeholder.svg"}
                   alt={`${retailer.name} logo`}
-                  className="h-16 w-24 sm:h-20 sm:w-32 md:h-24 md:w-40 lg:h-32 lg:w-48 object-contain"
+                  className="h-20 w-32 sm:h-16 sm:w-24 md:h-24 md:w-40 lg:h-32 lg:w-48 object-contain"
                 />
               </a>
             ))}
@@ -82,11 +82,11 @@ function WhereItBuy() {
         </div>
 
         {/* Mobile indicator */}
-        <div className="mt-8 text-center md:hidden">
+        {/* <div className="mt-8 text-center md:hidden">
           <p className="text-sm text-muted-foreground">
             ← Scroll to see more retailers →
           </p>
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`
