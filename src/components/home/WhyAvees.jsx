@@ -127,7 +127,6 @@ const WhyAvees = () => {
       <section className=" py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Content */}
             <div>
               <div
                 id="field-title"
@@ -143,7 +142,6 @@ const WhyAvees = () => {
               </div>
 
               <div className="space-y-8 relative">
-                {/* Vertical dotted line */}
                 <div className="absolute left-8 top-0 bottom-0 w-0 border-l-2 border-dotted border-red-600"></div>
                 
                 {processes.map((process, index) => (
@@ -168,12 +166,11 @@ const WhyAvees = () => {
               </div>
             </div>
 
-            {/* Right Image */}
             <div
               id="field-image"
-              className={`transition-all duration-1000 ${
-                isVisible["field-image"] ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-              }`}
+              className="transition-all duration-1000 
+                opacity-100 translate-x-0" 
+           
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
                 <img

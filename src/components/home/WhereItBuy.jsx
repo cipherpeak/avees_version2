@@ -50,7 +50,7 @@ function WhereItBuy() {
   ];
 
   return (
-    <div className="w-full py-8 md:py-20 bg-background flex items-center justify-center px-4">
+    <div className="w-full  py-8 md:py-20 bg-background flex items-center justify-center px-4">
       <div className="w-full max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
