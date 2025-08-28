@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import products from "../../assets/productsBanner/BANNER 1640X923.23.jpg";
 
 function Products() {
-  // Animation variants with exit animations
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

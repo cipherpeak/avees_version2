@@ -10,6 +10,8 @@ import HotelFoodsSection from '../../components/home/OurFoods'
 import FoodShowCase from '../../components/home/FoodShowCase'
 import WhyAvees from '../../components/home/WhyAvees'
 import WhereItBuy from '../../components/home/WhereItBuy'
+import EcosystemItems from '../../components/home/EcosystemItems'
+import Testimonials from '../../components/home/Testimonials'
 
 function HomeContents() {
   return (
@@ -18,13 +20,9 @@ function HomeContents() {
         <FoodShowCase/>
         <WhyAvees/>
         <WhereItBuy/>
-        <AveesSpecials/>
-        <Products/>
-        <OurStory/>
-        <HotelFoodsSection/>
-        <BatterSec/>
-        <AdsVideos/>
-        {/* <OurBrands/> */}
+        <EcosystemItems/>
+        <Testimonials/>
+        
     </div>
   )
 }

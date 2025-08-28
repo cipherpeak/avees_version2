@@ -27,10 +27,7 @@ function Footer() {
               <h3 className="text-lg font-semibold mb-4 text-black">Our company</h3>
 
               <p className="text-black text-sm leading-relaxed mb-6">
-                Avees Foods brings authentic South Indian cuisine to your kitchen. 
-                We offer high-quality traditional foods and regional specialties for 
-                both home cooks and professionals. Our commitment to quality, innovation, 
-                and customer satisfaction makes us a trusted partner in culinary exploration.
+Bringing the taste of Kuttanad to every kitchen.
               </p>
 
               {/* Social Media Icons */}

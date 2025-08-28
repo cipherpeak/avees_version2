@@ -1,4 +1,6 @@
+import { Building, Leaf, Sprout, Users, Zap } from "lucide-react"
 import { useState, useEffect } from "react"
+import { GiCoconuts } from "react-icons/gi"
 
 const WhyAvees = () => {
   const [scrollY, setScrollY] = useState(0)
@@ -30,23 +32,24 @@ const WhyAvees = () => {
     return () => observer.disconnect()
   }, [])
 
+
   const features = [
     {
-      icon: "🌿",
+      icon: <Leaf className="h-8 w-8" />,
       title: "Clean Label Promise",
       description:
         "No artificial preservatives, colors, or flavors. Just pure, natural ingredients the way our ancestors intended.",
       color: "white",
     },
     {
-      icon: "⚡",
+      icon: <Zap className="h-8 w-8 " />,
       title: "Stone Ground Fresh",
       description:
         "Traditional stone grinding preserves nutrients and authentic flavors, ensuring every bite tastes like home.",
       color: "white",
     },
     {
-      icon: "🥥",
+      icon: <GiCoconuts className="h-8 w-8" />,
       title: "Coconut Milk Base",
       description:
         "Enriched with fresh coconut milk from our own farms, adding richness and authentic Kerala taste to every product.",
@@ -56,19 +59,19 @@ const WhyAvees = () => {
 
   const processes = [
     {
-      icon: "🌱",
+      icon: <Sprout className="h-6 w-6 text-spice-orange" />,
       title: "Sustainable Farming",
       description: "Grown in the unique ecosystem of Kuttanad's below-sea-level farmlands.",
       delay: "0ms",
     },
     {
-      icon: "⚙️",
+      icon:<Building className="h-6 w-6 text-accent" />,
       title: "Traditional Processing",
       description: "Stone-ground using time-honored methods that preserve nutrition and flavor.",
       delay: "200ms",
     },
     {
-      icon: "✅",
+      icon: <Users className="h-6 w-6 text-spice-orange" />,
       title: "Quality Assurance",
       description: "Every batch tested for purity, freshness, and authentic taste before reaching you.",
       delay: "400ms",
@@ -105,9 +108,9 @@ const WhyAvees = () => {
                 }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <div className="relative p-8 rounded-3xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div className="relative p-8 rounded-3xl bg-white  shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
                   <div
-                    className={`w-20 h-20 rounded-full bg-gradient-to-r ${feature.color} shadow-2xl flex items-center justify-center text-3xl mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-20 h-20 rounded-full bg-gradient-to-r  ${feature.color} border-red-600 text-red-600 border flex items-center justify-center text-3xl mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`}
                   >
                     {feature.icon}
                   </div>
@@ -149,7 +152,7 @@ const WhyAvees = () => {
                     }`}
                     style={{ transitionDelay: process.delay }}
                   >
-                    <div className="w-16 h-16 rounded-full white flex items-center justify-center text-2xl flex-shrink-0 shadow-lg">
+                    <div className="w-16 h-16 rounded-full white flex items-center justify-center border border-red-600 text-red-600 text-2xl flex-shrink-0">
                       {process.icon}
                     </div>
                     <div>

@@ -107,7 +107,7 @@ export default function Banner() {
         <motion.video
           ref={videoRef}
           src={bannerSrc}
-          className="w-full lg:h-[50rem] object-cover rounded-3xl"
+          className="w-full lg:h-[50rem] h-96 object-cover rounded-3xl"
           muted
           loop
           playsInline
@@ -130,7 +130,7 @@ export default function Banner() {
                 Rooted in Kuttanad.
               </span>
               <br />
-              <span className="bg-gradient-to-r from-red-600 via-white to-green-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-600 via-white to-white bg-clip-text text-transparent">
                 Ready for the World.
               </span>
             </motion.h1>
